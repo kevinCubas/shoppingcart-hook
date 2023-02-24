@@ -4,6 +4,7 @@ import {
   MdAddCircleOutline,
   MdRemoveCircleOutline,
 } from 'react-icons/md';
+import { toast } from 'react-toastify';
 
 import { useCart } from '../../hooks/useCart';
 import { formatPrice } from '../../util/format';
@@ -119,7 +120,12 @@ const Cart = (): JSX.Element => {
       </ProductTable>
 
       <footer>
-        <button type="button">Finalizar pedido</button>
+        <button 
+          type="button"
+          disabled={!cartFormatted.length}
+          onClick={() => toast.success('Pedido concluído')}>
+            Finalizar pedido
+        </button>
 
         <Total>
           <span>TOTAL</span>
