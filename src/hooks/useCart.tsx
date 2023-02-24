@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { api } from '../services/api';
 import { Product, Stock } from '../types';
@@ -31,6 +31,20 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
     return [];
   });
 
+  const prevCartRef = useRef<Product[]>()
+
+  useEffect(() => {
+    prevCartRef.current = cart;
+  }, [cart])
+
+  const cartPreviousValue = prevCartRef.current ?? cart;
+
+  useEffect(() => {
+    if (cartPreviousValue !== cart) {
+      localStorage.setItem("@RocketShoes:cart", JSON.stringify(cart))
+    }
+  }, [cart, cartPreviousValue])
+
   const addProduct = async (productId: number) => {
     try {
       // TODO
@@ -60,7 +74,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       }
 
 
-      localStorage.setItem("@RocketShoes:cart", JSON.stringify(updatedCart))
+      
 
       setCart(updatedCart)
 
@@ -73,10 +87,16 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   const removeProduct = (productId: number) => {
     try {
       // TODO
-      const filteredProducts = cart.filter(product => product.id !== productId);
-      localStorage.setItem("@RocketShoes:cart", JSON.stringify(filteredProducts))
-
-      setCart(filteredProducts)
+      const product = cart.some(item => item.id === productId)
+      if(product) {
+        const filteredProducts = cart.filter(product => product.id !== productId);
+        
+  
+        setCart(filteredProducts)
+      } else {
+        throw new Error();
+        
+      }
     } catch {
       // TODO
       toast.error('Erro na remoção do produto');
@@ -104,7 +124,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
       if (product) {
         product.amount = amount
-        localStorage.setItem("@RocketShoes:cart", JSON.stringify(updatedCart))
+        
         setCart(updatedCart)
       } else {
         throw new Error();

@@ -8,11 +8,11 @@ The main objective is to create a shopping cart hook. Have access to two pages, 
 - [x] Remove a product from the cart;
 - [x] Store the cart in the localStorage;
 - [x] Show the number of different products added to the cart;
-- [ ] Calculate the quantity of each product in the cart;
-- [ ] Change the quantity of a product in the cart;
-- [ ] Calculation of sub-total and total cart prices;
-- [ ] Stock validation;
-- [ ] Display of error messages;
+- [x] Calculate the quantity of each product in the cart;
+- [x] Change the quantity of a product in the cart;
+- [x] Calculation of sub-total and total cart prices;
+- [x] Stock validation;
+- [x] Display of error messages;
 
 ## What should I edit in the application?
 
