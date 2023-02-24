@@ -4,9 +4,10 @@ The main objective is to create a shopping cart hook. Have access to two pages, 
 
 - [x] Fetch API products and format the price;
 - [x] Render all Products from the API;
-- [ ] Add a new product to the cart;
-- [ ] Remove a product from the cart;
-- [ ] Store the cart in the localStorage;
+- [x] Add a new product to the cart;
+- [x] Remove a product from the cart;
+- [x] Store the cart in the localStorage;
+- [x] Show the number of different products added to the cart;
 - [ ] Calculate the quantity of each product in the cart;
 - [ ] Change the quantity of a product in the cart;
 - [ ] Calculation of sub-total and total cart prices;
