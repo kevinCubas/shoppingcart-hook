@@ -73,7 +73,7 @@ toast.error('Erro na adição do produto');
     
 - **updateProductAmount:** You must update the quantity of a product in the cart. However, you need to check a few things:
      - The updated value of the cart must be perpetuated in **localStorage** using the `setItem` method.
-     - If the product quantity is less than or equal to zero, exit the **updateProductAmount** function instantly.
+     - If the amount is less than or equal to zero, exit the **updateProductAmount** function instantly.
      - Check if the desired quantity of the product is in stock. Otherwise, use the `error` method of **react-toastify** with the following message:
     
      ``` jsx
