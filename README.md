@@ -59,7 +59,7 @@ Implement the functions:
 - Capture using `trycatch` the errors that occur throughout the method and, in catch, use the `error` method of **react-toastify** with the following message:
 
 ``` jsx
-toast.error('Error adding product');
+toast.error('Erro na adição do produto');
 ```
 
 - **removeProduct:** You must remove a product from the cart. However, you need to check a few things:
@@ -67,7 +67,7 @@ toast.error('Error adding product');
      - Capture using `trycatch` the errors that occur throughout the method and, in catch, use the `error` method of **react-toastify** with the following message:
     
      ``` jsx
-     toast.error('Product removal error');
+    toast.error('Erro na remoção do produto');
      ```
     
 - **updateProductAmount:** You must update the quantity of a product in the cart. However, you need to check a few things:
@@ -76,11 +76,11 @@ toast.error('Error adding product');
      - Check if the desired quantity of the product is in stock. Otherwise, use the `error` method of **react-toastify** with the following message:
     
      ``` jsx
-     toast.error('Quantity requested out of stock');
+    toast.error('Quantidade solicitada fora de estoque');
      ```
     
      - Capture using `trycatch` the errors that occur throughout the method and, in catch, use the `error` method of **react-toastify** with the following message:
 
 ``` jsx
-     toast.error('Error in changing product quantity');
+     toast.error('Erro na alteração de quantidade do produto');
 ```
